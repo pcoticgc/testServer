@@ -2,8 +2,10 @@
 <html>
 
   <head>
-  <title>test server </title>
-  <meta charset="UTF-8"/>
+    <script src="js/aframe.min.js"></script>
+	<script src="js/aframe-ar.min.js"></script>
+    <title>test server </title>
+    <meta charset="UTF-8"/>
 	<meta name="title" content="ciència i coneixement"/>
 	<meta name="description" content="El territori des de l'espai"/>
 	<meta name="author" content="Antonio López García"/>
@@ -19,34 +21,35 @@
     <meta name="theme-color" content="#ffffff">
   </head>
   <body>
-    <div id='mp4Video'>
-     <h1> video mp4 </h1>
-      <video width="200" height="200" autoplay controls>
-	    <source src="videos/video.mp4" type="video/mp4">
-      </video>
-	</div>
+    <a-scene ar>
+	  <a-assets>
+	      <a-video id="videoMp4"    src="videos/video.mp4"  preload="auto"  ></a-video>
+		  <a-video id="videoOgg"    src="videos/video.ogv"  preload="auto"  ></a-video>
+		  <a-video id="videoWebm"   src="videos/video.webm" preload="auto"  ></a-video>
+		  <a-video id="videoMov"    src="videos/video.mov"  preload="auto"  ></a-video>
+	  </a-assets>	   
 	
-	<div id='oggVideo'>
-     <h1> video ogg </h1>
-     <video width="200" height="200" autoplay controls>
-	   <source src="videos/video.ogv" type="video/ogg">
-     </video> 
-    </div>
 	
-    <div id='webmVideo'>
-      <h1> video webm </h1>
-      <video width="200" height="200" autoplay controls>
-	    <source src="videos/video.webm" type="video/webm">
-      </video>
-    </div>
 	
-    <div id='movVideo'>
-      <h1> video mov </h1>
-      <video width="200" height="200" autoplay controls>
-	    <source src="videos/video.mov" type="video/mov">
-      </video>
-    </div>
-
+	
+        <a-marker type="pattern" preset="custom" url="data/letterA.patt">
+  		   <a-entity geometry="primitive: plane" scale="6 4 1" position="0 0 0" rotation="-90 0 0" material="src: #videoMp4"></a-entity>
+		</a-marker>
+		
+		<a-marker type="pattern" preset="custom" url="data/letterB.patt">
+  		   <a-entity geometry="primitive: plane" scale="6 4 1" position="0 0 0" rotation="-90 0 0" material="src: #videoOgg"></a-entity>
+		</a-marker>
+		
+		<a-marker type="pattern" preset="custom" url="data/letterC.patt">
+  		   <a-entity geometry="primitive: plane" scale="6 4 1" position="0 0 0" rotation="-90 0 0" material="src: #videoMebm"></a-entity>
+		</a-marker>
+		
+		<a-marker type="pattern" preset="custom" url="data/letterD.patt">
+  		   <a-entity geometry="primitive: plane" scale="6 4 1" position="0 0 0" rotation="-90 0 0" material="src: #videoMov"></a-entity>
+		</a-marker>
+		
+		
+    </a-scene>
   </body>
   
 </html>
